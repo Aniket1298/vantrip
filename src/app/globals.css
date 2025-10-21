@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* subtle page background accents that follow theme colors */
+  --bg-accent-light: radial-gradient(circle at 10% 10%, rgba(190,107,0,0.04), transparent 20%);
+  /* softer dark accent so dark mode isn't too heavy */
+  --bg-accent-dark: radial-gradient(circle at 90% 90%, rgba(255,255,255,0.035), transparent 22%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* use a slightly warmer/duller dark so surfaces feel softer */
+    --background: #0f1418; /* soft near-black */
+    --foreground: #e9eef0;
+  }
+}
+
+body {
+  background-color: var(--background);
+  background-image: var(--bg-accent-light);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background);
+    background-image: var(--bg-accent-dark);
+  }
+}
+
+/* simple hero fade animation */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-hero-fade {
+  animation: heroFadeIn 700ms ease-out both;
+}
