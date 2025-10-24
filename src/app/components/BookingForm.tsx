@@ -10,7 +10,7 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
   const total = pricePerPerson * travellers;
 
   return (
-  <form id="book" className="rounded-lg border p-4 bg-white/60 dark:bg-[#071018]/60 space-y-3">
+  <form id="book" className="rounded-lg border border-neutral-200 p-4 bg-white shadow-md space-y-3">
       <h4 className="text-lg font-semibold">Book this package</h4>
 
       <div>

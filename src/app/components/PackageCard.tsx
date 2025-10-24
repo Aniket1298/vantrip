@@ -15,7 +15,7 @@ export default function PackageCard({
   summary: string;
 }) {
   return (
-    <div className="rounded-lg border p-4 shadow-sm bg-white/60 dark:bg-[#071018]/60">
+  <div className="rounded-lg border border-neutral-200 p-4 shadow-md bg-white">
       <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
       <p className="text-sm text-neutral-600 dark:text-neutral-300 mt-2">{summary}</p>
       <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">

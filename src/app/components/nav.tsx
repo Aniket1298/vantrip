@@ -21,7 +21,7 @@ export default function Nav() {
     <nav
       role="navigation"
       aria-label="Main navigation"
-      className="sticky top-0 z-40 w-full border-b border-neutral-200/60 bg-white/60 backdrop-blur dark:bg-[#0a0a0a]/60 dark:border-neutral-800/60"
+  className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white shadow-sm dark:bg-white dark:border-neutral-200"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">

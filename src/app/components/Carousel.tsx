@@ -59,16 +59,14 @@ export default function Carousel({ images }: { images: string[] }) {
         <button
           aria-label="Previous"
           onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white"
+          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white border border-neutral-300 p-2 shadow-md hover:bg-neutral-100"
         >
-          ‹
         </button>
         <button
           aria-label="Next"
           onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white border border-neutral-300 p-2 shadow-md hover:bg-neutral-100"
         >
-          ›
         </button>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
