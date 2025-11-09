@@ -21,14 +21,14 @@ export default function Nav() {
     <nav
       role="navigation"
       aria-label="Main navigation"
-      className="sticky top-0 z-40 w-full border-b border-neutral-200/60 bg-white/60 backdrop-blur dark:bg-[#0a0a0a]/60 dark:border-neutral-800/60"
+      className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-white shadow-sm dark:bg-white dark:border-neutral-200"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="inline-flex items-center gap-2">
-              <Image src="/globe.svg" alt="Varanasi logo" width={28} height={28} />
-              <span className="font-medium">Varanasi Trips</span>
+              <Image src="/logo.svg" alt="TimelessKashi logo" width={32} height={32} className="dark:invert" />
+              <span className="font-medium tracking-tight">TimelessKashi</span>
             </Link>
           </div>
 
@@ -41,12 +41,6 @@ export default function Nav() {
             </Link>
             <Link href="/boat-rides" className="text-sm hover:underline">
               Boat Rides
-            </Link>
-            <Link
-              href="/book"
-              className="rounded-md bg-[#be6b00] text-white px-3 py-1 text-sm hover:opacity-95"
-            >
-              Book Now
             </Link>
           </div>
 
@@ -84,9 +78,6 @@ export default function Nav() {
           <MobileLink href="/packages">Packages</MobileLink>
           <MobileLink href="/temples">Temples</MobileLink>
           <MobileLink href="/boat-rides">Boat Rides</MobileLink>
-          <MobileLink href="/book">
-            <span className="font-medium">Book Now</span>
-          </MobileLink>
         </div>
       </div>
     </nav>

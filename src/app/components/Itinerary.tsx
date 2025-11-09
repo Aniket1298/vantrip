@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Itinerary({ days }: { days: Array<{ day: number; title: string; points: string[] }> }) {
   return (
-    <div className="rounded-lg border p-4 bg-white/60 dark:bg-[#071018]/60">
+  <div className="rounded-lg border border-neutral-200 p-4 bg-white shadow-md">
       <h4 className="text-lg font-semibold mb-2">Itinerary</h4>
       <div className="space-y-3">
         {days.map((d) => (

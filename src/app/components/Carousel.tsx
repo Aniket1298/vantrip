@@ -59,16 +59,20 @@ export default function Carousel({ images }: { images: string[] }) {
         <button
           aria-label="Previous"
           onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white focus:outline-none"
         >
-          ‹
+          <svg className="h-4 w-4 text-neutral-800" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fillRule="evenodd" d="M12.293 16.293a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l6-6a1 1 0 0 1 1.414 1.414L7.414 9l4.879 4.879a1 1 0 0 1 0 1.414z" clipRule="evenodd" />
+          </svg>
         </button>
         <button
           aria-label="Next"
           onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/70 p-2 shadow-sm hover:bg-white focus:outline-none"
         >
-          ›
+          <svg className="h-4 w-4 text-neutral-800" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fillRule="evenodd" d="M7.707 3.707a1 1 0 0 1 0-1.414l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L12.586 10 6.293 3.707a1 1 0 0 1 1.414-1.414z" clipRule="evenodd" />
+          </svg>
         </button>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
