@@ -1,14 +1,14 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Carousel({ images }: { images: string[] }) {
-  const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const slides = Array.isArray(images) ? images : [];
   const len = slides.length;
-  const delay = 3500;
+  const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const delay = 4000;
+  const fallback = "/file.svg";
 
   useEffect(() => {
     if (isPaused || len === 0) return;
@@ -20,8 +20,6 @@ export default function Carousel({ images }: { images: string[] }) {
   useEffect(() => setIndex(0), [len]);
 
   if (len === 0) return null;
-
-  const fallback = "/file.svg";
 
   const prev = () => setIndex((i) => (i - 1 + len) % len);
   const next = () => setIndex((i) => (i + 1) % len);

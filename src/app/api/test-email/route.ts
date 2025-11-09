@@ -7,7 +7,7 @@ export async function GET() {
     const testBooking = {
       id: `test_${Date.now()}`,
       name: "Test Customer",
-      email: process.env.ADMIN_EMAIL, // Send test email to admin email
+  email: process.env.ADMIN_EMAIL ?? "", // Send test email to admin email
       phone: "+91 98765 43210",
       travellers: 2,
       pickupDetails: "Test Flight AI123",

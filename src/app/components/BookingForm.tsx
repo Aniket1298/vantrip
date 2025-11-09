@@ -150,8 +150,8 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
         </button>
       </div>
 
-      {error && <div className="text-red-600 text-sm mt-2">{error}</div>}
-  {submitted && <div className="text-green-700 text-sm mt-2">Request submitted &mdash; we&apos;ll get back to you soon.</div>}
+    {error && <div className="text-red-600 text-sm mt-2">{error}</div>}
+    {submitted && <div className="text-green-700 text-sm mt-2">Request submitted &mdash; we&apos;ll get back to you soon.</div>}
     </form>
   );
 }

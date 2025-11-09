@@ -45,8 +45,8 @@ export async function sendBookingNotification(booking: BookingData) {
     });
 
     return { success: true };
-  } catch (error) {
-    console.error('Failed to send notification:', error);
-    return { success: false, error };
+  } catch (_error: unknown) {
+    console.error('Failed to send notification:', _error);
+    return { success: false, error: String(_error) };
   }
 }

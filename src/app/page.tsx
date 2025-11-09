@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import Carousel from "./components/Carousel";
-// import PackageCard from "./components/PackageCard";
+// ...existing code...
 import Image from "next/image";
 
 export default function Home() {
