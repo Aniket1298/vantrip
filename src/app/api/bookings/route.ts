@@ -1,10 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
 import { sendBookingNotification } from '@/lib/notifications';
-
-// In a real app, use a database. For now, we'll save to a JSON file
-const BOOKINGS_FILE = path.join(process.cwd(), 'data', 'bookings.json');
 
 export async function POST(request: Request) {
   console.log('📝 [POST /api/bookings] Received booking request');
@@ -21,22 +16,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create data directory if it doesn't exist
-    await fs.mkdir(path.dirname(BOOKINGS_FILE), { recursive: true });
-
-    // Read existing bookings
-    let bookings = [];
-    try {
-      const data = await fs.readFile(BOOKINGS_FILE, 'utf8');
-      bookings = JSON.parse(data);
-      console.log(`📂 Read ${bookings.length} existing bookings`);
-    } catch (err) {
-      console.log('📂 No existing bookings file, starting fresh');
-      // File doesn't exist yet, start with empty array
-      bookings = [];
-    }
-
-    // Add new booking
+    // Create booking object
     const booking = {
       id: `booking_${Date.now()}`,
       name,
@@ -50,13 +30,8 @@ export async function POST(request: Request) {
       status: 'pending'
     };
 
-    bookings.push(booking);
-
-    // Save updated bookings
-    console.log(`💾 Saving booking ${booking.id}`);
-    await fs.writeFile(BOOKINGS_FILE, JSON.stringify(bookings, null, 2));
-
     // Verify API key is set
+    console.log('API KEYYYYYYYYYYYYYY',process.env.RESEND_API_KEY)
     if (!process.env.RESEND_API_KEY) {
       console.error('❌ RESEND_API_KEY is not set in environment variables');
       console.log('Environment check:', {
