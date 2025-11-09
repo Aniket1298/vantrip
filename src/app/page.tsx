@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Carousel from "./components/Carousel";
 import PackageCard from "./components/PackageCard";
+import Image from "next/image";
 
 export default function Home() {
   const samplePackages = [
@@ -77,7 +78,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-36 h-24 rounded-lg overflow-hidden border border-[#f3e7d7]">
-                <img src="/file.svg" className="w-full h-full object-cover" />
+                <Image src="/file.svg" alt="package preview" width={144} height={96} className="w-full h-full object-cover" />
               </div>
             </div>
           ))}

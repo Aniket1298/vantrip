@@ -1,10 +1,22 @@
 import { Resend } from 'resend';
 import { createAdminEmailHtml, createCustomerEmailHtml } from './emailTemplates';
 
+interface BookingData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  travellers: number;
+  pickupDetails?: string;
+  pricePerPerson: number;
+  total: number;
+  timestamp: string;
+}
+
 // Initialize Resend with API key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendBookingNotification(booking: any) {
+export async function sendBookingNotification(booking: BookingData) {
   try {
     console.log('Starting email notifications with Resend API Key:', process.env.RESEND_API_KEY?.substring(0, 8) + '...');
     console.log('Admin email:', process.env.ADMIN_EMAIL);

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { sendBookingNotification } from '@/lib/notifications';
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     // Create a test booking
     const testBooking = {
@@ -31,11 +31,11 @@ export async function GET(request: Request) {
     } else {
       throw result.error;
     }
-  } catch (error: any) {
-    console.error('Test email failed:', error);
+  } catch (_error) {
+    console.error('Test email failed:', _error);
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: typeof _error === 'object' && _error !== null ? (_error as any).message : String(_error)
     }, { status: 500 });
   }
 }

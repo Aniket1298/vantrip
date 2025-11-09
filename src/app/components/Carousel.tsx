@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Carousel({ images }: { images: string[] }) {
   const [index, setIndex] = useState(0);
@@ -39,17 +40,18 @@ export default function Carousel({ images }: { images: string[] }) {
           {slides.map((src, i) => (
             <div key={i} className="flex-none w-full relative">
               <div className="w-full h-72 sm:h-96 md:h-[520px] lg:h-[520px] bg-neutral-100 dark:bg-neutral-800 relative">
-                <img
+                <Image
                   src={src}
                   alt={`carousel-${i}`}
+                  width={1200}
+                  height={520}
                   loading="lazy"
-                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {
                     const t = e.currentTarget as HTMLImageElement;
                     if (t.src !== fallback) t.src = fallback;
                   }}
                   style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
-                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </div>
