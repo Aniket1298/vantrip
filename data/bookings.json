@@ -1,0 +1,38 @@
+[
+  {
+    "id": "booking_1762700459173",
+    "name": "Aniket ",
+    "email": "kumar@test.com",
+    "phone": "8178160415",
+    "travellers": 1,
+    "pickupDetails": "12581",
+    "pricePerPerson": 6999,
+    "total": 6999,
+    "timestamp": "2025-11-09T15:00:59.167Z",
+    "status": "pending"
+  },
+  {
+    "id": "booking_1762700844348",
+    "name": "Aniket",
+    "email": "aniket@gmail.com",
+    "phone": "9999999990",
+    "travellers": 1,
+    "pickupDetails": "12343",
+    "pricePerPerson": 6999,
+    "total": 6999,
+    "timestamp": "2025-11-09T15:07:24.343Z",
+    "status": "pending"
+  },
+  {
+    "id": "booking_1762700987519",
+    "name": "Aniket",
+    "email": "k@gmail.com",
+    "phone": "999999991",
+    "travellers": 1,
+    "pickupDetails": "12583",
+    "pricePerPerson": 6999,
+    "total": 6999,
+    "timestamp": "2025-11-09T15:09:47.516Z",
+    "status": "pending"
+  }
+]

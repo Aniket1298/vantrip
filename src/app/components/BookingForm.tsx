@@ -9,6 +9,9 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
   const [travellers, setTravellers] = useState(1);
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [pickupDetails, setPickupDetails] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const total = pricePerPerson * travellers;
 
@@ -22,14 +25,45 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
     return e;
   };
 
-  const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const e = validate();
     setErrors(e);
+    setError(null);
+
     if (Object.keys(e).length === 0) {
-      setSubmitted(true);
-      // TODO: replace with real submission logic
-      console.log("Booking request", { name, email, phone, travellers, pricePerPerson });
+      setSubmitting(true);
+      try {
+        const response = await fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            travellers,
+            pickupDetails,
+            pricePerPerson
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to submit booking');
+        }
+
+        setSubmitted(true);
+        // Clear form
+        setName('');
+        setEmail('');
+        setPhone('');
+        setPickupDetails('');
+        setTravellers(1);
+      } catch (error) {
+        setError('Failed to submit booking. Please try again.');
+        setSubmitted(false);
+      } finally {
+        setSubmitting(false);
+      }
     } else {
       setSubmitted(false);
     }
@@ -96,14 +130,28 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
 
       <div>
         <label className="block text-sm">Pickup details</label>
-        <input placeholder="Flight number / train" className="w-full rounded border px-2 py-1 mt-1" />
+        <input 
+          value={pickupDetails}
+          onChange={(e) => setPickupDetails(e.target.value)}
+          placeholder="Flight number / train" 
+          className="w-full rounded border px-2 py-1 mt-1" 
+        />
       </div>
 
       <div className="flex">
-        <button type="submit" className="w-full rounded-md border px-3 py-2 text-neutral-700">Request callback</button>
+        <button 
+          type="submit" 
+          disabled={submitting}
+          className={`w-full rounded-md border px-3 py-2 text-neutral-700 ${
+            submitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-neutral-50'
+          }`}
+        >
+          {submitting ? 'Submitting...' : 'Request callback'}
+        </button>
       </div>
 
-      {submitted && <div className="text-green-700 text-sm">Request submitted — we'll get back to you soon.</div>}
+      {error && <div className="text-red-600 text-sm mt-2">{error}</div>}
+      {submitted && <div className="text-green-700 text-sm mt-2">Request submitted — we'll get back to you soon.</div>}
     </form>
   );
 }

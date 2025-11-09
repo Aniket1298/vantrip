@@ -27,8 +27,8 @@ export default function Nav() {
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="inline-flex items-center gap-2">
-              <Image src="/logo.svg" alt="BanarasBound logo" width={32} height={32} className="dark:invert" />
-              <span className="font-medium tracking-tight">BanarasBound</span>
+              <Image src="/logo.svg" alt="TimelessKashi logo" width={32} height={32} className="dark:invert" />
+              <span className="font-medium tracking-tight">TimelessKashi</span>
             </Link>
           </div>
 
