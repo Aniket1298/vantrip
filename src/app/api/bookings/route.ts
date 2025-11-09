@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     try {
       const data = await fs.readFile(BOOKINGS_FILE, 'utf8');
       bookings = JSON.parse(data);
-    } catch (_error) {
+    } catch {
       // File doesn't exist yet, start with empty array
       bookings = [];
     }
@@ -70,8 +70,7 @@ export async function POST(request: Request) {
           { status: 500 }
         );
       }
-    } catch (_error) {
-      console.error('Notification error:', _error);
+    } catch {
       return NextResponse.json(
         { error: 'Failed to send notification' },
         { status: 500 }
@@ -83,8 +82,7 @@ export async function POST(request: Request) {
       booking,
       message: 'Booking saved and notifications sent'
     });
-  } catch (_error) {
-    console.error('Error saving booking:', _error);
+  } catch {
     return NextResponse.json(
       { error: 'Failed to save booking' },
       { status: 500 }

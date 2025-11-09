@@ -58,7 +58,7 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
         setPhone('');
         setPickupDetails('');
         setTravellers(1);
-      } catch (error) {
+      } catch {
         setError('Failed to submit booking. Please try again.');
         setSubmitted(false);
       } finally {

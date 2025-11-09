@@ -31,11 +31,10 @@ export async function GET() {
     } else {
       throw result.error;
     }
-  } catch (_error) {
-    console.error('Test email failed:', _error);
+  } catch {
     return NextResponse.json({
       success: false,
-      error: typeof _error === 'object' && _error !== null ? (_error as any).message : String(_error)
+      error: 'Test email failed.'
     }, { status: 500 });
   }
 }
