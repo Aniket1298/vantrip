@@ -25,7 +25,10 @@ export default function PackageCard({
           <div className="text-xs text-neutral-500">per person</div>
         </div>
         <div>
-          <Link href="#book" className="w-full sm:w-auto block text-center rounded-md bg-[#be6b00] px-3 py-2 text-white">
+          <Link
+            href="#book"
+            className="w-full sm:w-auto block text-center rounded-md border border-neutral-200 px-3 py-2 text-neutral-700 bg-white hover:bg-[#fff7ec]"
+          >
             Book Now
           </Link>
         </div>

@@ -1,26 +1,81 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function BookingForm({ pricePerPerson }: { pricePerPerson: number }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [travellers, setTravellers] = useState(1);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const total = pricePerPerson * travellers;
 
+  const validate = () => {
+    const e: { name?: string; email?: string; phone?: string } = {};
+    if (!name.trim()) e.name = "Name is required";
+    if (!email.trim()) e.email = "Email is required";
+    else if (!/^\S+@\S+\.\S+$/.test(email)) e.email = "Enter a valid email";
+    if (!phone.trim()) e.phone = "Phone number is required";
+    else if (phone.replace(/\D/g, "").length < 7) e.phone = "Enter a valid phone number";
+    return e;
+  };
+
+  const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    const e = validate();
+    setErrors(e);
+    if (Object.keys(e).length === 0) {
+      setSubmitted(true);
+      // TODO: replace with real submission logic
+      console.log("Booking request", { name, email, phone, travellers, pricePerPerson });
+    } else {
+      setSubmitted(false);
+    }
+  };
+
   return (
-  <form id="book" className="rounded-lg border border-neutral-200 p-4 bg-white shadow-md space-y-3">
+    <form id="book" onSubmit={onSubmit} className="rounded-lg border border-neutral-200 p-4 bg-white shadow-md space-y-3">
       <h4 className="text-lg font-semibold">Book this package</h4>
 
       <div>
         <label className="block text-sm">Full name</label>
-        <input value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded border px-2 py-2 mt-1" />
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full rounded border px-2 py-2 mt-1"
+          required
+          aria-invalid={errors.name ? "true" : "false"}
+        />
+        {errors.name && <div className="text-red-600 text-sm mt-1">{errors.name}</div>}
       </div>
 
       <div>
         <label className="block text-sm">Email</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded border px-2 py-2 mt-1" />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full rounded border px-2 py-2 mt-1"
+          type="email"
+          required
+          aria-invalid={errors.email ? "true" : "false"}
+        />
+        {errors.email && <div className="text-red-600 text-sm mt-1">{errors.email}</div>}
+      </div>
+
+      <div>
+        <label className="block text-sm">Phone number</label>
+        <input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          type="tel"
+          placeholder="e.g. +91 98765 43210"
+          className="w-full rounded border px-2 py-2 mt-1"
+          required
+          aria-invalid={errors.phone ? "true" : "false"}
+        />
+        {errors.phone && <div className="text-red-600 text-sm mt-1">{errors.phone}</div>}
       </div>
 
       <div>
@@ -44,10 +99,11 @@ export default function BookingForm({ pricePerPerson }: { pricePerPerson: number
         <input placeholder="Flight number / train" className="w-full rounded border px-2 py-1 mt-1" />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-2">
-        <button type="button" className="w-full sm:w-auto rounded-md bg-[#be6b00] px-3 py-2 text-white">Proceed to pay</button>
-        <button type="button" className="w-full sm:w-auto rounded-md border px-3 py-2">Request callback</button>
+      <div className="flex">
+        <button type="submit" className="w-full rounded-md border px-3 py-2 text-neutral-700">Request callback</button>
       </div>
+
+      {submitted && <div className="text-green-700 text-sm">Request submitted — we'll get back to you soon.</div>}
     </form>
   );
 }

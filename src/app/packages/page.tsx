@@ -2,24 +2,10 @@
 import PackageCard from "../components/PackageCard";
 import Itinerary from "../components/Itinerary";
 import BookingForm from "../components/BookingForm";
-import Carousel from "../components/Carousel";
 import { useState } from "react";
 
 export default function PackagesPage() {
   const [selected, setSelected] = useState<3 | 5 | null>(3);
-  const [showCarousel, setShowCarousel] = useState(true);
-
-  // Carousel images (public/carousel/*)
-  const carouselImages = [
-    "/carousel/e83ec978-76a8-4503-a983-db45ec0e28b1.jpg",
-    "/carousel/b74ea1d4-e0b5-4558-b048-c21b5bc2507d.jpg",
-    "/carousel/aaf73f31-ca6c-4b1a-976e-de256b135a7b.jpg",
-    "/carousel/779e9917-bea4-4cfc-9923-c1ce18748eed.jpg",
-    "/carousel/4b25780b-16eb-4f85-9285-d7b1b14d45aa.jpg",
-    "/carousel/43929d67-a5dd-4627-b862-08ae386653e0.jpg",
-    "/carousel/35365c60-ddfb-4fd6-8b0d-9da04df94e3c.jpg",
-    "/carousel/26575e1e-2d00-4a04-9735-0408475ecc2a.jpg",
-  ];
 
   // 3-day package
   const price3 = 6999;
@@ -98,12 +84,7 @@ export default function PackagesPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-      {/* Carousel toggleable at the top */}
-      {showCarousel && (
-        <div className="mb-8">
-          <Carousel images={carouselImages} />
-        </div>
-      )}
+      {/* Carousel removed as per design */}
       <h1 className="text-3xl font-bold mb-8">Choose your Varanasi package</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* 3-day card */}
@@ -156,15 +137,7 @@ export default function PackagesPage() {
           </div>
         </div>
       </div>
-      {/* Toggle button at the bottom */}
-      <div className="flex justify-center mt-10">
-        <button
-          className="btn px-6 py-2 rounded-lg text-base font-semibold shadow-md bg-[#be6b00] hover:bg-[#a45a00] text-white transition"
-          onClick={() => setShowCarousel((v) => !v)}
-        >
-          {showCarousel ? "Hide Photos" : "Show Photos"}
-        </button>
-      </div>
+      {/* photos removed */}
     </div>
   );
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Temple silhouette with dome -->
+  <path d="M256 80 L356 280 L156 280 Z" fill="#1e293b" stroke="#1e293b" stroke-width="8"/>
+  <path d="M206 280 L306 280 L256 220 Z" fill="#1e293b" stroke="#1e293b" stroke-width="8"/>
+  
+  <!-- River waves -->
+  <path d="M100 340 Q156 300 206 340 Q256 380 306 340 Q356 300 412 340" 
+        stroke="#475569" fill="none" stroke-width="12" stroke-linecap="round"/>
+  <path d="M100 380 Q156 340 206 380 Q256 420 306 380 Q356 340 412 380" 
+        stroke="#475569" fill="none" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Boat silhouette -->
+  <path d="M216 300 L296 300 L276 330 L236 330 Z" fill="#475569"/>
+  
+  <!-- Stylized B letters -->
+  <path d="M156 420 L186 420 Q206 420 206 440 L206 460 Q206 480 186 480 L156 480 Z" fill="#1e293b"/>
+  <path d="M326 420 L356 420 Q376 420 376 440 L376 460 Q376 480 356 480 L326 480 Z" fill="#1e293b"/>
+</svg>

@@ -5,7 +5,6 @@ export default function BoatRidesPage() {
     {
       title: "Sunrise Boat Ride",
       description: "Experience the magical sunrise over the Ganges as the city awakens. Watch morning rituals and ceremonies along the ghats.",
-      imageSrc: "/boat-rides/sunrise.jpg",
       duration: "2 hours",
       price: 999,
       timing: "4:30 AM - 6:30 AM",
@@ -20,7 +19,6 @@ export default function BoatRidesPage() {
     {
       title: "Evening Ganga Aarti",
       description: "Witness the mesmerizing Ganga Aarti ceremony from the river. Perfect view of the grand ritual at Dashashwamedh Ghat.",
-      imageSrc: "/boat-rides/evening-aarti.jpg",
       duration: "2.5 hours",
       price: 1299,
       timing: "5:00 PM - 7:30 PM",
@@ -35,7 +33,6 @@ export default function BoatRidesPage() {
     {
       title: "Full Moon Boat Ride",
       description: "A serene night ride under the full moon, experiencing the spiritual atmosphere of Varanasi after dark.",
-      imageSrc: "/boat-rides/full-moon.jpg",
       duration: "1.5 hours",
       price: 1499,
       timing: "8:00 PM - 9:30 PM",
@@ -50,7 +47,6 @@ export default function BoatRidesPage() {
     {
       title: "Heritage Ghat Tour",
       description: "Comprehensive tour covering all major ghats, with detailed explanations of their history and significance.",
-      imageSrc: "/boat-rides/heritage.jpg",
       duration: "3 hours",
       price: 1799,
       timing: "7:00 AM - 10:00 AM",
@@ -65,7 +61,6 @@ export default function BoatRidesPage() {
     {
       title: "Sunset Photography Tour",
       description: "Perfect for photography enthusiasts. Capture the golden hour light on the ghats and river life.",
-      imageSrc: "/boat-rides/sunset.jpg",
       duration: "2 hours",
       price: 1599,
       timing: "4:30 PM - 6:30 PM",
@@ -80,7 +75,6 @@ export default function BoatRidesPage() {
     {
       title: "Private Romantic Ride",
       description: "Exclusive boat ride for couples with decorated boat and personalized service.",
-      imageSrc: "/boat-rides/romantic.jpg",
       duration: "1.5 hours",
       price: 2499,
       timing: "Available on request",
@@ -112,7 +106,6 @@ export default function BoatRidesPage() {
             key={ride.title}
             title={ride.title}
             description={ride.description}
-            imageSrc={ride.imageSrc}
             duration={ride.duration}
             price={ride.price}
             timing={ride.timing}

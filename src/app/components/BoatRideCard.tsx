@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 interface BoatRideCardProps {
   title: string;
   description: string;
-  imageSrc: string;
   duration: string;
   price: number;
   timing: string;
@@ -16,7 +14,6 @@ interface BoatRideCardProps {
 export default function BoatRideCard({ 
   title, 
   description, 
-  imageSrc, 
   duration, 
   price, 
   timing,
@@ -24,14 +21,6 @@ export default function BoatRideCard({
 }: BoatRideCardProps) {
   return (
     <div className="group bg-gradient-to-br from-white via-[#fff7ec] to-[#fbeee0] rounded-2xl shadow-xl border-2 border-neutral-200 overflow-hidden transition-all duration-300 hover:border-[#be6b00]/60 hover:scale-[1.02]">
-      <div className="aspect-video relative overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={`${title} boat ride`}
-          fill
-          className="object-cover transform group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold">{title}</h3>
@@ -40,9 +29,9 @@ export default function BoatRideCard({
             <div className="text-sm text-neutral-500">per person</div>
           </div>
         </div>
-        
+
         <p className="text-neutral-600 mb-4">{description}</p>
-        
+
         <div className="space-y-2 mb-4">
           <div className="flex gap-2 text-sm">
             <span className="font-semibold min-w-[80px]">Duration:</span>
@@ -66,9 +55,9 @@ export default function BoatRideCard({
           </ul>
         </div>
 
-        <Link 
-          href="/book" 
-          className="inline-block w-full text-center bg-[#be6b00] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#a45a00] transition-colors"
+        <Link
+          href="/book"
+          className="inline-block w-full text-center border border-neutral-200 text-neutral-700 py-2 px-4 rounded-lg font-semibold bg-white hover:bg-[#fff7ec] transition-colors"
         >
           Book Now
         </Link>
