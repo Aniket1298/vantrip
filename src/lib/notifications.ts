@@ -17,12 +17,13 @@ interface BookingData {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendBookingNotification(booking: BookingData) {
+  let isTestMode = false;
   try {
     console.log('Starting email notifications with Resend API Key:', process.env.RESEND_API_KEY?.substring(0, 8) + '...');
     console.log('Admin email:', process.env.ADMIN_EMAIL);
     
     // During testing, we can only send to the verified email
-    const isTestMode = !process.env.VERIFIED_DOMAIN;
+    isTestMode = !process.env.VERIFIED_DOMAIN;
     const fromEmail = isTestMode 
       ? 'onboarding@resend.dev'
       : `noreply@${process.env.VERIFIED_DOMAIN}`;
@@ -63,8 +64,8 @@ export async function sendBookingNotification(booking: BookingData) {
     return { 
       success: true,
       testMode: isTestMode,
-      adminEmailSent: !!adminResult?.id,
-      customerEmailSent: !!customerResult?.id
+      adminEmailSent: !!(adminResult && !(adminResult as any).error),
+      customerEmailSent: !!(customerResult && !(customerResult as any).error)
     };
   } catch (error: unknown) {
     console.error('Failed to send notification:', error);

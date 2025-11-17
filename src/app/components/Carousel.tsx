@@ -83,8 +83,10 @@ export default function Carousel({ images }: { images: string[] }) {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 w-8 rounded-full shadow-sm focus:outline-none`}
+              className={`rounded-full shadow-sm focus:outline-none`}
               style={{
+                height: '6px',
+                width: '20px',
                 backgroundColor: i === index ? '#ffffff' : 'rgba(255,255,255,0.6)',
                 border: '1px solid rgba(0,0,0,0.06)'
               }}
