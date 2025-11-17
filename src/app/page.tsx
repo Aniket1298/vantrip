@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function Home() {
   const samplePackages = [
-    { title: "Varanasi Essentials", price: 6999, days: 3, summary: "A compact 3-day itinerary covering must-see experiences." },
-    { title: "Varanasi Explorer", price: 10999, days: 5, summary: "A deeper 5-day journey including Sarnath, food walk and more." },
+    { title: "Varanasi Essentials", price: 6999, days: 3, summary: "A compact 3-day itinerary covering must-see experiences.", image: '/carousel/e83ec978-76a8-4503-a983-db45ec0e28b1.jpg' },
+    { title: "Varanasi Explorer", price: 10999, days: 5, summary: "A deeper 5-day journey including Sarnath, food walk and more.", image: '/carousel/b74ea1d4-e0b5-4558-b048-c21b5bc2507d.jpg' },
   ];
 
   const testimonials = [
@@ -78,7 +78,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-36 h-24 rounded-lg overflow-hidden border border-[#f3e7d7]">
-                <Image src="/file.svg" alt="package preview" width={144} height={96} className="w-full h-full object-cover" />
+                <Image src={p.image} alt={`${p.title} preview`} width={144} height={96} className="w-full h-full object-cover" />
               </div>
             </div>
           ))}
