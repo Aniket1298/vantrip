@@ -61,11 +61,19 @@ export async function sendBookingNotification(booking: BookingData) {
       customerResult
     });
 
-    return { 
+    // Helper to check if the Resend response contains an error
+    const hasError = (res: unknown): res is { error: unknown } => {
+      return typeof res === 'object' && res !== null && 'error' in (res as Record<string, unknown>);
+    };
+
+    const adminEmailSent = Boolean(adminResult && !hasError(adminResult));
+    const customerEmailSent = Boolean(customerResult && !hasError(customerResult));
+
+    return {
       success: true,
       testMode: isTestMode,
-      adminEmailSent: !!(adminResult && !(adminResult as any).error),
-      customerEmailSent: !!(customerResult && !(customerResult as any).error)
+      adminEmailSent,
+      customerEmailSent,
     };
   } catch (error: unknown) {
     console.error('Failed to send notification:', error);
