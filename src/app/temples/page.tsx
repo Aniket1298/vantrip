@@ -1,4 +1,8 @@
-import TempleCard from "../components/TempleCard";
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Clock, MapPin, Info } from "lucide-react";
 
 export default function TemplesPage() {
   const temples = [
@@ -61,28 +65,82 @@ export default function TemplesPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="bg-gradient-to-br from-white via-[#fff7ec] to-[#fbeee0] rounded-2xl shadow-xl p-8 md:p-12 border border-[#f3e7d7] mb-12">
-        <h1 className="text-4xl font-bold mb-4">Sacred Temples of Varanasi</h1>
-        <p className="text-lg text-neutral-700">
-          Discover the divine temples of Varanasi, each with its unique history and spiritual significance. 
-          From the magnificent Kashi Vishwanath to the serene Tulsi Manas Temple, explore these architectural 
-          and spiritual marvels that have drawn pilgrims for centuries.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {temples.map((temple) => (
-          <TempleCard
-            key={temple.name}
-            name={temple.name}
-            description={temple.description}
-            imageSrc={temple.imageSrc}
-            timing={temple.timing}
-            significance={temple.significance}
+    <main className="min-h-screen bg-[#fffbf2]">
+      {/* Hero Section */}
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/temples-hero.png"
+            alt="Kashi Vishwanath Temple"
+            fill
+            className="object-cover brightness-[0.6]"
+            priority
           />
-        ))}
-      </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[#fffbf2]" />
+        </div>
+        <div className="relative z-10 text-center px-4 max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-4 text-shadow-lg"
+          >
+            Sacred Temples
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-orange-100"
+          >
+            Discover the divine temples that have drawn pilgrims for centuries.
+          </motion.p>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 py-16 -mt-20 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {temples.map((temple, idx) => (
+            <motion.div
+              key={temple.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+            >
+              <div className="relative h-56 bg-neutral-200 overflow-hidden">
+                {temple.imageSrc && (
+                  <Image
+                    src={temple.imageSrc}
+                    alt={temple.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-[#d97706] transition-colors">
+                  {temple.name}
+                </h3>
+                <p className="text-neutral-600 text-sm mb-4 line-clamp-3">{temple.description}</p>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-start gap-2 text-neutral-700">
+                    <Clock size={16} className="mt-0.5 text-[#d97706] shrink-0" />
+                    <span><strong>Timing:</strong> {temple.timing}</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-neutral-700">
+                    <Info size={16} className="mt-0.5 text-[#d97706] shrink-0" />
+                    <span className="line-clamp-2"><strong>Significance:</strong> {temple.significance}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
