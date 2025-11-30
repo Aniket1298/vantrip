@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, Users, Star, IndianRupee } from "lucide-react";
+import { Clock, Users, Star } from "lucide-react";
 
 export default function BoatRidesPage() {
   const boatRides = [
@@ -134,7 +134,7 @@ export default function BoatRidesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass-card rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+              className="bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 group relative overflow-hidden shadow-lg border border-neutral-100"
             >
               <div className="absolute top-0 right-0 bg-[#d97706] text-white px-4 py-2 rounded-bl-2xl font-bold shadow-lg">
                 ₹{ride.price}
