@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ContactForm from '../components/ContactForm';
 import Link from 'next/link';
+import { Phone, Mail, Instagram, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -21,7 +22,9 @@ export default function ContactPage() {
           <p className="text-neutral-600 mb-4">We’re here to help you plan your perfect Varanasi journey. Reach us via any of the details below:</p>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#fff7ed] flex items-center justify-center text-[#be6b00] font-bold">P</div>
+              <div className="w-10 h-10 rounded-full bg-[#fff7ed] flex items-center justify-center text-[#be6b00]">
+                <Phone size={20} />
+              </div>
               <div>
                 <div className="text-sm text-neutral-500">Phone</div>
                 <div className="font-semibold">+91 8795019256</div>
@@ -29,7 +32,9 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#e2fbff] flex items-center justify-center text-[#085b60] font-bold">E</div>
+              <div className="w-10 h-10 rounded-full bg-[#e2fbff] flex items-center justify-center text-[#085b60]">
+                <Mail size={20} />
+              </div>
               <div>
                 <div className="text-sm text-neutral-500">Email</div>
                 <div className="font-semibold">timelesskashi1@gmail.com</div>
@@ -37,7 +42,9 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#fef3c7] flex items-center justify-center text-[#d97706] font-bold">I</div>
+              <div className="w-10 h-10 rounded-full bg-[#fef3c7] flex items-center justify-center text-[#d97706]">
+                <Instagram size={20} />
+              </div>
               <div>
                 <div className="text-sm text-neutral-500">Instagram</div>
                 <Link href="https://www.instagram.com/timelesskashi_" className="font-semibold text-[#d97706] hover:underline">@timelesskashi_</Link>
@@ -45,7 +52,9 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#eafff0] flex items-center justify-center text-[#157a3d] font-bold">W</div>
+              <div className="w-10 h-10 rounded-full bg-[#eafff0] flex items-center justify-center text-[#157a3d]">
+                <MessageCircle size={20} />
+              </div>
               <div>
                 <div className="text-sm text-neutral-500">WhatsApp</div>
                 <div className="font-semibold">+91 8795019256</div>
