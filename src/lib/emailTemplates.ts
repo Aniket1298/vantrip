@@ -90,3 +90,56 @@ export function createCustomerEmailHtml(booking: BookingData) {
     </html>
   `;
 }
+
+export function createContactAdminEmailHtml(contact: { name: string; email: string; phone?: string; message: string; timestamp?: string }) {
+  const when = contact.timestamp || new Date().toISOString();
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>New Contact Request - TimelessKashi</title>
+      </head>
+      <body style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #1f2937; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background-color: #ffffff; border-radius: 8px; border: 1px solid #e5e7eb; padding: 24px; margin-bottom: 24px;">
+          <h1 style="color: #1f2937; font-size: 24px; margin: 0 0 24px 0;">New Contact Request</h1>
+          <div style="margin-bottom: 24px;">
+            <h2 style="font-size: 18px; color: #4b5563; margin: 0 0 16px 0;">Contact Details</h2>
+            <p style="margin: 8px 0;"><strong>Name:</strong> ${contact.name}</p>
+            <p style="margin: 8px 0;"><strong>Phone:</strong> ${contact.phone || '—'}</p>
+            <p style="margin: 8px 0;"><strong>Email:</strong> ${contact.email}</p>
+            <p style="margin: 8px 0;"><strong>Message:</strong> ${contact.message}</p>
+            <p style="margin: 8px 0;"><strong>Received on:</strong> ${new Date(when).toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' })}</p>
+          </div>
+        </div>
+        <div style="text-align: center; color: #6b7280; font-size: 14px;">
+          <p>This is an automated message from TimelessKashi contact form</p>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+export function createContactCustomerEmailHtml(contact: { name: string; email: string; phone?: string; message: string }) {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>Thanks for contacting TimelessKashi</title>
+      </head>
+      <body style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #1f2937; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background-color: #ffffff; border-radius: 8px; border: 1px solid #e5e7eb; padding: 24px; margin-bottom: 24px;">
+          <h1 style="color: #1f2937; font-size: 24px; margin: 0 0 24px 0;">Thanks for contacting TimelessKashi!</h1>
+          <div style="margin-bottom: 24px;">
+            <p style="margin: 0 0 16px 0;">Dear ${contact.name},</p>
+            <p style="margin: 0 0 16px 0;">Thanks for getting in touch. We have received your message and will respond as soon as possible. Reply to this email if you have more details.</p>
+          </div>
+        </div>
+        <div style="text-align: center; color: #6b7280; font-size: 14px;">
+          <p>TimelessKashi — we'll get back to you shortly.</p>
+        </div>
+      </body>
+    </html>
+  `;
+}

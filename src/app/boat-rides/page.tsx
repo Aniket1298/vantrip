@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Clock, Users, Star } from "lucide-react";
 
@@ -169,12 +170,44 @@ export default function BoatRidesPage() {
                   </ul>
                 </div>
 
-                <button className="mt-6 w-full py-3 bg-[#d97706] text-white rounded-xl font-semibold hover:bg-[#b45309] transition-colors shadow-lg">
-                  Book Now
-                </button>
+                <Link href="/contact" className="mt-6 w-full block">
+                  <button className="w-full py-3 bg-[#d97706] text-white rounded-xl font-semibold hover:bg-[#b45309] transition-colors shadow-lg">
+                    Book Now
+                  </button>
+                </Link>
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Contact Us CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-[#d97706] to-[#b45309] relative overflow-hidden">
+        <div className="absolute inset-0 bg-noise opacity-20"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-white mb-6"
+          >
+            Ready to Experience the Ganges?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-orange-100 mb-10 max-w-2xl mx-auto"
+          >
+            Book your boat ride today and witness the spiritual beauty of Varanasi from the sacred river.
+          </motion.p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-4 bg-white text-[#d97706] rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </main>
