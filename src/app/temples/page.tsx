@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Clock, Info } from "lucide-react";
 
@@ -139,6 +140,36 @@ export default function TemplesPage() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Contact Us CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-[#d97706] to-[#b45309] relative overflow-hidden">
+        <div className="absolute inset-0 bg-noise opacity-20"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-white mb-6"
+          >
+            Plan Your Temple Tour
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-orange-100 mb-10 max-w-2xl mx-auto"
+          >
+            Let us guide you through the sacred temples of Varanasi with our expert local guides.
+          </motion.p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-4 bg-white text-[#d97706] rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </main>

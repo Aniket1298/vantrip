@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { createAdminEmailHtml, createCustomerEmailHtml } from './emailTemplates';
+import { createAdminEmailHtml, createCustomerEmailHtml, createContactAdminEmailHtml, createContactCustomerEmailHtml } from './emailTemplates';
 
 interface BookingData {
   id: string;
@@ -93,5 +93,40 @@ export async function sendBookingNotification(booking: BookingData) {
       error: errorMsg,
       testMode: isTestMode 
     };
+  }
+}
+
+export async function sendContactNotification(contact: { name: string; email: string; phone?: string; message: string }) {
+  try {
+    console.log('Starting contact notification', { email: process.env.ADMIN_EMAIL, domain: process.env.VERIFIED_DOMAIN ? 'verified' : 'not-verified' });
+    const isTestMode = !process.env.VERIFIED_DOMAIN;
+    const fromEmail = isTestMode ? 'onboarding@resend.dev' : `noreply@${process.env.VERIFIED_DOMAIN}`;
+
+    const adminHtml = createContactAdminEmailHtml({ ...contact, timestamp: new Date().toISOString() });
+    const customerHtml = createContactCustomerEmailHtml(contact);
+
+    // Send to admin first
+    const adminResult = await resend.emails.send({
+      from: `TimelessKashi <${fromEmail}>`,
+      to: process.env.ADMIN_EMAIL!,
+      subject: `New Contact Message - ${contact.name}`,
+      html: adminHtml,
+    });
+
+    // Send confirmation to the user's email only if domain verified or email equals admin
+    let customerResult = null;
+    if (!isTestMode || contact.email === process.env.ADMIN_EMAIL) {
+      customerResult = await resend.emails.send({
+        from: `TimelessKashi <${fromEmail}>`,
+        to: contact.email,
+        subject: 'Thanks for contacting TimelessKashi',
+        html: customerHtml,
+      });
+    }
+
+    return { success: true, adminResult, customerResult };
+  } catch (error) {
+    console.error('Failed to send contact notification:', error);
+    return { success: false, error: String(error) };
   }
 }

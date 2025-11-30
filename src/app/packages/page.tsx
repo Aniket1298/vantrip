@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Clock, Star, ArrowRight } from "lucide-react";
 import BookingForm from "../components/BookingForm";
@@ -19,9 +20,9 @@ export default function PackagesPage() {
       image: "/package-1.png",
       rating: 4.8,
       itinerary: [
-        { day: 1, title: "Arrival & Ghat Walk", points: ["Pickup from station/airport", "Check-in to hotel", "Kaal Bhairav Temple","Vishwanath Temple(B.H.U)","Evening Ghat walk & Ganga Aarti"] },
-        { day: 2, title: "Temple Tour", points: ["Sunrise boat ride", "Morning Kashi Vishwanath Darshan","Nepali Mandir","Man Singh Observatory","Explore ancient lanes & markets"] },
-        { day: 3, title: "Departure", points: ["Sankat Mochan Darshan", "Durga Mata Mandir", "Kina Ram Baba Visit","Drop at station/airport"] }
+        { day: 1, title: "Arrival & Ghat Walk", points: ["Pickup from station/airport", "Check-in to hotel", "Kaal Bhairav Temple", "Vishwanath Temple(B.H.U)", "Evening Ghat walk & Ganga Aarti"] },
+        { day: 2, title: "Temple Tour", points: ["Sunrise boat ride", "Morning Kashi Vishwanath Darshan", "Nepali Mandir", "Man Singh Observatory", "Explore ancient lanes & markets"] },
+        { day: 3, title: "Departure", points: ["Sankat Mochan Darshan", "Durga Mata Mandir", "Kina Ram Baba Visit", "Drop at station/airport"] }
       ]
     },
     {
@@ -88,8 +89,8 @@ export default function PackagesPage() {
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setSelected(pkg.id as 3 | 5)}
                 className={`cursor-pointer rounded-2xl overflow-hidden border-2 transition-all duration-300 relative ${selected === pkg.id
-                    ? "border-[#d97706] shadow-2xl ring-4 ring-orange-100"
-                    : "border-transparent shadow-lg hover:shadow-xl bg-white"
+                  ? "border-[#d97706] shadow-2xl ring-4 ring-orange-100"
+                  : "border-transparent shadow-lg hover:shadow-xl bg-white"
                   }`}
               >
                 <div className="relative h-48">
@@ -167,6 +168,36 @@ export default function PackagesPage() {
             </AnimatePresence>
           </div>
 
+        </div>
+      </section>
+
+      {/* Contact Us CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-[#d97706] to-[#b45309] relative overflow-hidden">
+        <div className="absolute inset-0 bg-noise opacity-20"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-white mb-6"
+          >
+            Need Help Planning Your Journey?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-orange-100 mb-10 max-w-2xl mx-auto"
+          >
+            We&apos;re here to customize your perfect Varanasi experience. Get in touch with our expert team today.
+          </motion.p>
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-4 bg-white text-[#d97706] rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </main>
