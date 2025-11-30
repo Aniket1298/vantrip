@@ -63,7 +63,7 @@ export default function Nav() {
               className="flex items-center gap-2 px-5 py-2.5 bg-[#d97706] text-white rounded-full text-sm font-semibold hover:bg-[#b45309] transition-all shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-0.5"
             >
               <Phone size={16} />
-              <span>Book Now</span>
+              <span>Contact Us</span>
             </Link>
           </div>
 
@@ -102,7 +102,7 @@ export default function Nav() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 px-8 py-3 bg-[#d97706] text-white rounded-full text-lg font-semibold shadow-lg mx-auto inline-block"
               >
-                Book Now
+                Contact Us
               </Link>
             </div>
           </motion.div>
