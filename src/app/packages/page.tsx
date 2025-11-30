@@ -19,9 +19,9 @@ export default function PackagesPage() {
       image: "/package-1.png",
       rating: 4.8,
       itinerary: [
-        { day: 1, title: "Arrival & Ghat Walk", points: ["Pickup from station/airport", "Check-in to hotel", "Evening Ghat walk & Ganga Aarti"] },
-        { day: 2, title: "Temple Tour", points: ["Morning Kashi Vishwanath Darshan", "Explore ancient lanes & markets", "Evening boat ride"] },
-        { day: 3, title: "Departure", points: ["Sunrise boat ride", "Breakfast & Checkout", "Drop at station/airport"] }
+        { day: 1, title: "Arrival & Ghat Walk", points: ["Pickup from station/airport", "Check-in to hotel", "Kaal Bhairav Temple","Vishwanath Temple(B.H.U)","Evening Ghat walk & Ganga Aarti"] },
+        { day: 2, title: "Temple Tour", points: ["Sunrise boat ride", "Morning Kashi Vishwanath Darshan","Nepali Mandir","Man Singh Observatory","Explore ancient lanes & markets"] },
+        { day: 3, title: "Departure", points: ["Sankat Mochan Darshan", "Durga Mata Mandir", "Kina Ram Baba Visit","Drop at station/airport"] }
       ]
     },
     {
