@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "name": "TimelessKashi - Varanasi Tour Packages",
+    "short_name": "TimelessKashi",
+    "description": "Curated Varanasi tour packages, Ganga Aarti experiences, temple tours, and boat rides.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fffbf2",
+    "theme_color": "#d97706",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}

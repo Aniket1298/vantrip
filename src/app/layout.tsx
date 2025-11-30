@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/nav";
+import StructuredData from "./components/StructuredData";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -16,6 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://timelesskashi.in'),
   title: "TimelessKashi — Varanasi Tour Packages & Bookings",
   description:
     "TimelessKashi (formerly BanarasBound) offers curated Varanasi tour packages, Ganga Aarti experiences, Sarnath visits, and local guided trips. Book affordable, hassle-free itineraries for small groups and private tours.",
@@ -31,11 +33,17 @@ export const metadata: Metadata = {
     "Varanasi packages",
     "Varanasi itinerary"
   ],
+  authors: [{ name: "TimelessKashi" }],
+  creator: "TimelessKashi",
+  publisher: "TimelessKashi",
+  alternates: {
+    canonical: 'https://timelesskashi.in',
+  },
   openGraph: {
     title: "TimelessKashi — Varanasi Tour Packages & Bookings",
     description:
       "Curated Varanasi tour packages: witness the Ganga Aarti, explore temples, and experience the city's timeless culture. Affordable itineraries and expert local guides.",
-    url: "https://your-domain.com",
+    url: "https://timelesskashi.in",
     siteName: "TimelessKashi",
     images: [
       {
@@ -45,6 +53,7 @@ export const metadata: Metadata = {
         alt: "TimelessKashi Varanasi Boat Ride",
       },
     ],
+    locale: 'en_IN',
     type: "website",
   },
   twitter: {
@@ -56,6 +65,16 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // You'll need to add this from Google Search Console
   },
 };
 
@@ -68,6 +87,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" href="/manifest.json" />
+        <StructuredData />
       </head>
       <body
         className={`${playfair.variable} ${outfit.variable} font-sans antialiased bg-[#fffbf2] text-neutral-900`}
