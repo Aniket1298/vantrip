@@ -4,12 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Star, MapPin, Calendar, ShieldCheck, Users } from "lucide-react";
-import Carousel from "./components/Carousel";
 
 export default function Home() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const samplePackages = [
     {
       title: "Varanasi Essentials",
@@ -195,7 +193,7 @@ export default function Home() {
                 <div className="mb-4 text-[#d97706]">
                   {[1, 2, 3, 4, 5].map(s => <Star key={s} size={16} className="inline fill-current" />)}
                 </div>
-                <p className="text-lg italic text-gray-300 mb-6">"{t.quote}"</p>
+                <p className="text-lg italic text-gray-300 mb-6">&ldquo;{t.quote}&rdquo;</p>
                 <div>
                   <p className="font-bold text-white">{t.name}</p>
                   <p className="text-sm text-gray-500">{t.role}</p>

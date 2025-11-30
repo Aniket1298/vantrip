@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, MapPin, Info } from "lucide-react";
+import { Clock, Info } from "lucide-react";
 
 export default function TemplesPage() {
   const temples = [
