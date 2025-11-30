@@ -217,7 +217,7 @@ export default function Home() {
               href="/contact"
               className="inline-block px-10 py-4 bg-white text-[#d97706] rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
-              Start Planning
+              Contact Us
             </Link>
           </div>
         </div>

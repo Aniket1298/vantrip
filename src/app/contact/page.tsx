@@ -7,7 +7,6 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[#fffbf2]">
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/contact-hero.jpg" alt="Contact TimelessKashi" fill className="object-cover brightness-[0.65]" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#fffbf2]" />
         </div>
         <div className="relative z-10 text-center px-4">
