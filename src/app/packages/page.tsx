@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, MapPin, Clock, Star, ArrowRight } from "lucide-react";
+import { Check, Clock, Star, ArrowRight } from "lucide-react";
 import BookingForm from "../components/BookingForm";
 
 export default function PackagesPage() {
