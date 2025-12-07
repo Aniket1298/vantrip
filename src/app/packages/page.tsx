@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +9,22 @@ import { Check, Clock, Star, ArrowRight } from "lucide-react";
 import BookingForm from "../components/BookingForm";
 
 export default function PackagesPage() {
-  const [selected, setSelected] = useState<3 | 5 | null>(3);
+  const searchParams = useSearchParams();
+  const packageParam = searchParams.get('package');
+
+  // Set initial selected package based on URL parameter or default to 3
+  const [selected, setSelected] = useState<3 | 5 | null>(
+    packageParam === '5' ? 5 : packageParam === '3' ? 3 : 3
+  );
+
+  // Update selected package when URL parameter changes
+  useEffect(() => {
+    if (packageParam === '3') {
+      setSelected(3);
+    } else if (packageParam === '5') {
+      setSelected(5);
+    }
+  }, [packageParam]);
 
   const packages = [
     {

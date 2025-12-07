@@ -166,9 +166,12 @@ export default function Home() {
                       <MapPin size={16} /> Varanasi
                     </div>
                   </div>
-                  <button className="w-full py-3 rounded-xl border-2 border-[#d97706] text-[#d97706] font-bold hover:bg-[#d97706] hover:text-white transition-all">
+                  <Link
+                    href={`/packages?package=${p.days}`}
+                    className="block w-full py-3 rounded-xl border-2 border-[#d97706] text-[#d97706] font-bold hover:bg-[#d97706] hover:text-white transition-all text-center"
+                  >
                     View Itinerary
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
