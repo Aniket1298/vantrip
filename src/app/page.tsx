@@ -28,7 +28,7 @@ export default function Home() {
   ];
 
   const testimonials = [
-    { name: "Priya Sharma", quote: "The Ganga Aarti from the boat was absolutely mesmerizing! Our guide Rajesh ji explained every ritual with such devotion. Worth every rupee!", role: "Bangalore" },
+    { name: "Priya Sharma", quote: "The Ganga Aarti from the boat was absolutely mesmerizing! Our guide Sahil explained every ritual with such devotion. Worth every rupee!", role: "Bangalore" },
     { name: "Amit Patel", quote: "Best decision to book with VanTrip! They arranged everything perfectly - from hotel to temple visits. The food walk was a bonus treat!", role: "Ahmedabad" },
     { name: "Sneha Reddy", quote: "Took my parents for their 30th anniversary. The team was so patient and accommodating. Ma was emotional during Kashi Vishwanath darshan.", role: "Hyderabad" },
     { name: "Rahul Verma", quote: "Solo trip to Varanasi and felt completely safe. The heritage walk through galis was incredible. Learned so much about our culture!", role: "Delhi" },
