@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,18 +11,35 @@ import BookingForm from "../components/BookingForm";
 export default function PackagesPage() {
   const searchParams = useSearchParams();
   const packageParam = searchParams.get('package');
+  const detailsRef = useRef<HTMLDivElement>(null);
 
   // Set initial selected package based on URL parameter or default to 3
   const [selected, setSelected] = useState<3 | 5 | null>(
     packageParam === '5' ? 5 : packageParam === '3' ? 3 : 3
   );
 
+  // Function to handle package selection and scroll on mobile
+  const handlePackageSelect = (pkgId: 3 | 5) => {
+    setSelected(pkgId);
+
+    // Scroll to details panel on mobile after a short delay
+    setTimeout(() => {
+      if (detailsRef.current && window.innerWidth < 1024) {
+        const yOffset = -100; // Offset for fixed navbar
+        const element = detailsRef.current;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   // Update selected package when URL parameter changes
   useEffect(() => {
     if (packageParam === '3') {
-      setSelected(3);
+      handlePackageSelect(3);
     } else if (packageParam === '5') {
-      setSelected(5);
+      handlePackageSelect(5);
     }
   }, [packageParam]);
 
@@ -103,7 +120,7 @@ export default function PackagesPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 whileHover={{ scale: 1.02 }}
-                onClick={() => setSelected(pkg.id as 3 | 5)}
+                onClick={() => handlePackageSelect(pkg.id as 3 | 5)}
                 className={`cursor-pointer rounded-2xl overflow-hidden border-2 transition-all duration-300 relative ${selected === pkg.id
                   ? "border-[#d97706] shadow-2xl ring-4 ring-orange-100"
                   : "border-transparent shadow-lg hover:shadow-xl bg-white"
@@ -139,6 +156,7 @@ export default function PackagesPage() {
               {selected && (
                 <motion.div
                   key={selected}
+                  ref={detailsRef}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
