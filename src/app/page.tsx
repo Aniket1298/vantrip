@@ -11,7 +11,7 @@ export default function Home() {
   const samplePackages = [
     {
       title: "Varanasi Essentials",
-      price: 6999,
+      price: 6499,
       days: 3,
       summary: "A compact 3-day itinerary covering must-see experiences.",
       image: '/package-1.png',
