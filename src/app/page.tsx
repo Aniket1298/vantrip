@@ -28,8 +28,10 @@ export default function Home() {
   ];
 
   const testimonials = [
-    { name: "Asha R.", quote: "Magical experience — the boat ride and aarti were unforgettable!", role: "Traveler from Mumbai" },
-    { name: "James M.", quote: "Well-organized and informative. Highly recommend the heritage tour.", role: "Traveler from UK" },
+    { name: "Priya Sharma", quote: "The Ganga Aarti from the boat was absolutely mesmerizing! Our guide Rajesh ji explained every ritual with such devotion. Worth every rupee!", role: "Bangalore" },
+    { name: "Amit Patel", quote: "Best decision to book with VanTrip! They arranged everything perfectly - from hotel to temple visits. The food walk was a bonus treat!", role: "Ahmedabad" },
+    { name: "Sneha Reddy", quote: "Took my parents for their 30th anniversary. The team was so patient and accommodating. Ma was emotional during Kashi Vishwanath darshan.", role: "Hyderabad" },
+    { name: "Rahul Verma", quote: "Solo trip to Varanasi and felt completely safe. The heritage walk through galis was incredible. Learned so much about our culture!", role: "Delhi" },
   ];
 
   return (
@@ -182,7 +184,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 px-4 bg-[#1c1917] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-pattern"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-[#fef3c7]">Stories from the Ghats</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
