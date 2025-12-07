@@ -76,6 +76,14 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code', // You'll need to add this from Google Search Console
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/logo.jpeg', sizes: '192x192', type: 'image/jpeg' },
+    ],
+    apple: { url: '/logo.jpeg', sizes: '180x180', type: 'image/jpeg' },
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

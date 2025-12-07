@@ -6,6 +6,8 @@ export default function StructuredData() {
         "alternateName": "BanarasBound",
         "description": "Curated Varanasi tour packages, Ganga Aarti experiences, Sarnath visits, and local guided trips.",
         "url": "https://timelesskashi.in",
+        "logo": "https://timelesskashi.in/logo.jpeg",
+        "image": "https://timelesskashi.in/logo.jpeg",
         "telephone": "+91-8795019256",
         "email": "timelesskashi1@gmail.com",
         "address": {
@@ -43,7 +45,8 @@ export default function StructuredData() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "TimelessKashi",
-        "image": "https://timelesskashi.in/carousel/e83ec978-76a8-4503-a983-db45ec0e28b1.jpg",
+        "logo": "https://timelesskashi.in/logo.jpeg",
+        "image": "https://timelesskashi.in/logo.jpeg",
         "@id": "https://timelesskashi.in",
         "url": "https://timelesskashi.in",
         "telephone": "+91-8795019256",
